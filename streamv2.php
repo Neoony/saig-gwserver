@@ -522,9 +522,9 @@ if ($finalParsedData[0] == "funcret") {
 	$returnFunctionArray[] = array('role' => 'function', 'name' => $returnFunction[1], 'content' => "{$returnFunction[3]}");
 
 	if ($forceAttackingText)
-		$returnFunctionArray[] = array('role' => 'assistant', 'content' => "{$PROMPTS["afterattack"][0]} {$GLOBALS["HERIKA_NAME"]}: ");
+		$returnFunctionArray[] = array('role' => 'user', 'content' => "{$PROMPTS["afterattack"][0]} {$GLOBALS["HERIKA_NAME"]}: ");
 	else
-		$returnFunctionArray[] = array('role' => 'assistant', 'content' => $request);
+		$returnFunctionArray[] = array('role' => 'user', 'content' => $request);
 
 
 	$parms = array_merge($head, ($contextDataFull), $functionCalled, $returnFunctionArray);
@@ -549,7 +549,7 @@ if ($finalParsedData[0] == "funcret") {
 } else if ( (strpos($finalParsedData[0],"chatnf")!==false)) {
 
 
-	$prompt[] = array('role' => 'assistant', 'content' => $request);
+	$prompt[] = array('role' => 'user', 'content' => $request);
 
 	$parms = array_merge($head, ($contextDataFull), $prompt);
 	$data = array(
@@ -566,7 +566,7 @@ if ($finalParsedData[0] == "funcret") {
 } else if ($finalParsedData[0] == "diary") {
 
 
-	$prompt[] = array('role' => 'assistant', 'content' => $request);
+	$prompt[] = array('role' => 'user', 'content' => $request);
 
 	$parms = array_merge($head, ($contextDataFull), $prompt);
 	$data = array(
@@ -584,7 +584,7 @@ if ($finalParsedData[0] == "funcret") {
 
 } else {
 
-	$prompt[] = array('role' => 'assistant', 'content' => $request);
+	$prompt[] = array('role' => 'user', 'content' => $request);
 	$parms = array_merge($head, ($contextDataFull), $prompt);
 	$data = array(
 		'model' => (isset($GLOBALS["GPTMODEL"]))?$GLOBALS["GPTMODEL"]:'gpt-3.5-turbo-0613',
