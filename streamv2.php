@@ -772,8 +772,9 @@ if ($handle === false) {
 
 			$buffer = strtr($buffer, array("\"" => ""));
 
-			$pattern = "/\([^()]*\)/"; // Modified pattern to remove unmatched opening parentheses
-			$buffer = preg_replace($pattern, "", $buffer);
+			//This removes moods as well, it would break moods, commented out
+			//$pattern = "/\([^()]*\)/"; // Modified pattern to remove unmatched opening parentheses
+			//$buffer = preg_replace($pattern, "", $buffer);
 
 			if (strlen($buffer) < MAXIMUM_SENTENCE_SIZE) // Avoid too short buffers
 				continue;
