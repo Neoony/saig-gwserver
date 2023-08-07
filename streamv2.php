@@ -437,7 +437,7 @@ $forceAttackingText = false;
 /**** CALL *******/
 
 if ($finalParsedData[0] == "funcret") {
-	$prompt[] = array('role' => 'assistant', 'content' => $request);
+	$prompt[] = array('role' => 'user', 'content' => $request);
 
 	$returnFunction = explode("@", $finalParsedData[3]); // Function returns here
 
